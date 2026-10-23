@@ -1,0 +1,58 @@
+{
+ "generated": "2026-10-20",
+ "plugins": [
+  {
+   "author": "Veil",
+   "author_pk": "nQoOpsZyhx2G83qR4WoyOepfdM5NH9lx60zpTC701ho",
+   "author_sig": "C6tFJwVtECAZTiJPVdT4minKuQ5DOFzQ8C_595s_YhiabHGP9iYJRJh8krqag_-T1-VHtmP7t5gpINYlvdXXDw",
+   "description": "Не даёт опубликовать пост с открытой ссылкой: ссылка может выдать автора. Предлагает скрыть ссылки.",
+   "encrypted": false,
+   "file": "packages/link_guard/1.0.0.zip",
+   "id": "link_guard",
+   "license": "MIT",
+   "name": "Без открытых ссылок",
+   "network": [],
+   "permissions": [
+    "before_send"
+   ],
+   "price_stars": 0,
+   "reviewed": "2026-10-20",
+   "sha256": "9258c69d1e63afee5602091049c049cbc1aa35f590d5f9ac96aab922ca22e387",
+   "size": 1187,
+   "version": "1.0.0",
+   "zip_sha256": "9258c69d1e63afee5602091049c049cbc1aa35f590d5f9ac96aab922ca22e387"
+  },
+  {
+   "author": "Veil",
+   "author_pk": "nQoOpsZyhx2G83qR4WoyOepfdM5NH9lx60zpTC701ho",
+   "author_sig": "wTDHhw3M6Ue21gCu6g6tyQsAVRl8U6J0jLfGrKcsnWNcCZ_b2wst4vjq2Fjld9vcEKIwFcEtLuoAJ9faXTt7DQ",
+   "description": "Копит ответы на ваши посты и по команде /digest присылает сводку: на какой пост сколько ответов. Предупреждает, когда кончаются токены.",
+   "encrypted": false,
+   "file": "packages/reply_digest/1.0.0.zip",
+   "id": "reply_digest",
+   "license": "MIT",
+   "name": "Сводка ответов",
+   "network": [],
+   "permissions": [
+    "replies",
+    "commands",
+    "notify",
+    "tokens"
+   ],
+   "price_stars": 0,
+   "reviewed": "2026-10-20",
+   "sha256": "d613136a78f57465b21a571558c969bd3852b72759bc5ac803dc49774346f170",
+   "size": 1339,
+   "version": "1.0.0",
+   "zip_sha256": "d613136a78f57465b21a571558c969bd3852b72759bc5ac803dc49774346f170"
+  }
+ ],
+ "revoked": [],
+ "seq": 6,
+ "shop": {
+  "bot": "@veil_market_bot",
+  "kid": "s1",
+  "pk": "HmUHaF0gB113kLVXXn8ffBqAcPGFwhtZQBrq6nkH2kw"
+ },
+ "v": 1
+}
