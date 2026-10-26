@@ -1,0 +1,45 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  catalog:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: veil-plugins
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: a58becde/veil-client
+          ref: main
+          path: veil-client
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: libsodium
+        run: sudo apt-get install --yes --no-install-recommends libsodium23
+      - name: Зависимости клиента из lock-файлов (с хешами)
+        working-directory: veil-client
+        run: python -m pip install --require-hashes --no-deps -r requirements.lock
+      - name: index.json разбирается
+        run: python -c 'import json; json.load(open("veil-plugins/index.json"))'
+      - name: Подписи и состав каталога
+        working-directory: veil-client
+        run: |
+          key=$(python -c 'import tomllib; print(tomllib.load(open("config.example.toml", "rb"))["market"]["key"])')
+          python -m veil.market_tool verify ../veil-plugins "$key"
